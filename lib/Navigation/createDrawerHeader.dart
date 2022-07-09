@@ -1,22 +1,17 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Widget createDrawerHeader() {
-  return DrawerHeader(
+  return const DrawerHeader(
       margin: EdgeInsets.zero,
-      padding: EdgeInsets.zero,
-      decoration: const BoxDecoration(
+      //padding: EdgeInsets.symmetric(vertical: 110),
+      decoration: BoxDecoration(
+        color: Color(0xFF6EB7A1),
           image: DecorationImage(
-              fit: BoxFit.fill,
-              image:  AssetImage('images/bg_header.jpeg'))),
-      child: Stack(children: const <Widget>[
-        Positioned(
-            bottom: 12.0,
-            left: 16.0,
-            child: Text("Welcome to Flutter",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.w500))),
-      ]));
+              fit: BoxFit.contain,
+              image:  AssetImage('assets/images/Rmlogowhite.png',)
+          )
+      ), child: null,
+
+  )
+  ;
 }

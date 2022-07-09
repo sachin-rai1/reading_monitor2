@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'Navigation/navigationDrawer.dart';
+
+
 
 class Transition extends StatefulWidget {
   const Transition({Key? key}) : super(key: key);
@@ -28,7 +31,8 @@ class _TransitionState extends State<Transition> {
         ),
             child:  Scaffold(
               backgroundColor: Colors.transparent,
-              appBar: AppBar(
+               drawer: const NavigationDrawer(),
+               appBar: AppBar(
                 backgroundColor: Colors.transparent,
                 actions:<Widget> [
                   GestureDetector(
@@ -43,14 +47,24 @@ class _TransitionState extends State<Transition> {
                   ),
                 ],
                 elevation: 0,
-                leading: IconButton(
-                  iconSize: 41.19,
-                  icon: const Icon(Icons.menu_outlined),
-                  color: Colors.green,
-                  tooltip: 'Menu Icon',
-                  onPressed: () {},
+                leading: Builder(
+                  builder: (context) {
+                    return IconButton(
+                      iconSize: 41.19,
+                      icon: const Icon(Icons.menu_outlined),
+                      color: Colors.green,
+                      onPressed: () {
+                        Scaffold.of(context).openDrawer();
+                      },
+                      tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+
+                    );
+
+                  }
                 ),
+
               ),
+
               body: Stack (
              children : [
               Container(
